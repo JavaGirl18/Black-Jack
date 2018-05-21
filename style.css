@@ -1,0 +1,9 @@
+.table{
+   border:solid;
+   outline-style: double;
+   border-radius: 10px;
+   background-color:#006944;
+   height: 600px;
+   width:800px;
+   margin:0 auto;
+}
