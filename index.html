@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="style.css">
-    <title>BlackJack</title>
+<link rel="stylesheet" href="style.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<title>BlackJack</title>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <div class='table'></div>
 
-    <script></script>
+<body>
+    <div class='table'>
+
+        <div class='dealer'>
+            <div class='card' id='dealC1'></div>
+            <div class='card' id='dealC2'></div>
+            <div class='card' id='dealC3'></div>
+            <div class='card' id='dealC4'></div>
+            <div class='card' id='dealC5'></div>
+        </div>
+        <center><h1>DEALER</h1></center>
+        <div class='scoreBox'>
+            <u><h2>Dealer Score</h2></u>
+            <input type="text"> 
+        </div>
+        <div class='scoreBox' id='pScore'>   
+            <u><h2>Player1 Score</h2></u>
+            <input type="text">
+
+        </div>
+
+        <div class='score'>
+            <button id='hit'>Hit</button>
+           <button id='stand'>Stand</button>
+        </div>
+        <center>
+            <h1 id='ptitle'>PLAYER</h1>
+        </center>
+        <div class='player1'>
+            <div class='card' id='playerC5'></div>
+            <div class='card' id='playerC5'></div>
+            <div class='card' id='playerC5'></div>
+            <div class='card' id='playerC5'></div>
+            <div class='card' id='playerC5'></div>
+        </div>
+
+    </div>
+
+    <script src='game.js'></script>
 </body>
+
 </html>

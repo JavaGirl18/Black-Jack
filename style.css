@@ -1,9 +1,80 @@
+body{
+    /* background-image: url('casino.gif');
+    /* background-image: no-repeat; */
+    background-size:cover; 
+    background-repeat: no-repeat; */
+}
 .table{
-   border:solid;
+   border:solid red;
    outline-style: double;
    border-radius: 10px;
    background-color:#006944;
-   height: 600px;
-   width:800px;
+  height:500px;
+   width:900px;
    margin:0 auto;
+   margin-top: 100px;
+   position: relative;
+   /* display: flex; */
 }
+
+.dealer{
+    display: flex;
+    position: relative;
+    justify-content: space-between; 
+    border:solid;
+    border-radius:20px;
+    height:110px;
+    width:500px;
+    margin:auto;
+    margin-top:30px;
+}
+
+.player1{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    border:solid;
+    border-radius:20px;
+    height:110px;
+    width:500px;
+    margin:auto;
+    margin-top:-30px;
+    
+}
+.card{
+    border:solid;
+    height:100px;
+    width:50px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background:url('spark.gif');
+    /* margin-top:20px; */
+    
+}
+#ptitle{
+margin-top:-100px;
+padding: 20px;
+
+}
+
+#pScore{
+    margin-top:80px;
+}
+input{
+    background-color:red;
+}
+.scoreBox{
+    margin-top:-50px;
+}
+/* .dScore{
+    border:solid;
+}
+.pScore{
+    border:solid;
+} */
+/* .scoreBox{
+    border:solid;
+    height:50px;
+    width:50px;
+   
+} */
