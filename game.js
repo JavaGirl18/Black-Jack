@@ -13,6 +13,24 @@ const createDeck = function () {
     for (let i = 0; i < suits.length; i++) {
         // console.log('inside first loop')
         for (let j = 0; j < face.length; j++) {
+            let faceValue=0
+            const faceCard = face[j]
+            switch(faceCard){
+                case 'A':
+                faceValue=10;
+                break;
+                case 'K':
+                faceValue=10;
+                break;
+                case 'Q':
+                faceValue=10;
+                break;
+                case 'J':
+                faceValue=10;
+                break;
+            }
+                
+
             const newCard = {
                 suits: suits[i],
                 face: face[j],
@@ -25,67 +43,83 @@ const createDeck = function () {
 }
 createDeck()
 
+let dealer = [];
+let cardCounter = 0;
 let player1 = [];
 dealOneCardPlayer1 = function () {
     let rand = Math.floor(Math.random() * (deck.length))
-    console.log(rand)
-    player1.push(rand)
-    $('#playerC1').attr('src',deck[0].image)
-    console.log(player1)
 
+    player1.push(rand)
+    if (cardCounter == 0) {
+        $('#playerC3').attr('src', deck[rand].image)
+        cardCounter++;
+
+    }
+    else if (cardCounter == 1) {
+        $('#playerC4').attr('src', deck[rand].image)
+        cardCounter++
+
+    }
+    else if (cardCounter == 2) {
+        $('#playerC5').attr('src', deck[rand].image)
+        $('#hit1').attr('disabled', true)
+    }
+    // else if (cardCounter == 3) {
+    //     $('#playerC4').attr('src', deck[rand].image)
+    //     cardCounter++
+    // }
+    // else if (cardCounter == 4) {
+    //     $('#playerC5').attr('src', deck[rand].image)
+       
+    // }
 }
-let dealer = [];
+
+let count = 0;
+deal = function () {
+    let rand = Math.floor(Math.random() * (deck.length))
+    player1.push(deck[rand])
+    deck.splice(rand,1)
+    let rand2 = Math.floor(Math.random() * (deck.length-1))
+    dealer.push(deck[rand])
+    deck.splice(rand2,1)
+    console.log('inside deal')
+    if (count === 0) {
+        $('#playerC1').attr('src', deck[rand].image)
+        deck.splice(rand,1)
+        $('#playerC2').attr('src', deck[rand].image)
+        $('#dealC1').attr('src', deck[rand2].image)
+        deck.splice(rand2,1)
+        $('#dealC2').attr('src', deck[rand2].image)
+    }
+    else if (count === 1) {
+        $('deal').attr('disabled', true)
+    }
+}
+console.log(cardCounter)
+// console.log(player1)
+
+
+
+let cardCounter2 = 0;
 dealOneCardDealer = function () {
     let rand = Math.floor(Math.random() * (deck.length))
-    console.log(rand)
     dealer.push(deck[rand])
-    console.log(dealer)
+
 
 }
 
 
-
-
-// randomCard: function () {
-//         deck.suits.forEach(element => {
-//             let rand = Math.floor(Math.random() * (deck.suits.length-1))
-//             // console.log(rand)
-//             holderDeck1.push(deck.suits[rand])
-
-//         })
-//     // setTimeout(randomCard,1000)
-//     console.log(holderDeck1)
-//     }
-
-// }
-
-
-// let combine = function () {
-//     let sum = holderDeck1 + holderDeck2
-//     console.log(sum)
-// }
-
-
-// const deck2 = {
-//     face: ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'],
-//     randomCard2: function () {
-//         deck2.face.forEach(element => {
-//             let rand2 = Math.floor(Math.random() * (deck2.face.length - 1))
-//             holderDeck2.push(deck2.suits[rand2])
-//         })
-//         console.log(holderDeck2)
-//     }
-// }
-
-
-$(document).ready(function () { 
-    console.log("inside doc ready")
+$(document).ready(function () {
     $('#hit1').on('click', function () {
-        console.log("anything")
         dealOneCardPlayer1()
     })
 
     $('#hit2').on('click', function () {
         dealOneCardDealer()
     })
+    $('#deal').on('click', function () {
+        deal()
+        // dealOneCardPlayer1()
+    })
+
 })
