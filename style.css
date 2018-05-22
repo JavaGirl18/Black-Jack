@@ -47,12 +47,16 @@ img, .card{
     width:50px;
     border-radius: 10px;
     margin: 0 auto;
-    background:url('images/spark.gif');
+    /* background:url('images/spark.gif'); */
     /* margin-top:20px; */
     
 }
+.chips{
+    float: right;
+    transform:translate('90px')
+}
 #ptitle{
-margin-top:-100px;
+margin-top:-160px;
 padding: 20px;
 
 }
