@@ -12,7 +12,7 @@ const createDeck = function () {
             const num = Number(faceCard)
             switch (faceCard) {
                 case 'A':
-                    faceValue = 10;
+                    faceValue = 11;
                     break;
                 case 'K':
                     faceValue = 10;
@@ -29,25 +29,25 @@ const createDeck = function () {
                 case '9':
                     faceValue = 9;
                     break;
-                    case '8':
+                case '8':
                     faceValue = 8;
                     break;
-                    case '7':
+                case '7':
                     faceValue = 7;
                     break;
-                    case '6':
+                case '6':
                     faceValue = 6;
                     break;
-                    case '5':
+                case '5':
                     faceValue = 5;
                     break;
-                    case '4':
+                case '4':
                     faceValue = 4;
                     break;
-                    case '3':
+                case '3':
                     faceValue = 3;
                     break;
-                    case '2':
+                case '2':
                     faceValue = 2;
                     break;
             }
@@ -67,17 +67,18 @@ const createDeck = function () {
 createDeck()
 
 
+
 let cardCounter = 0;
 let player1 = [];
 dealOneCardPlayer1 = function () {
     let rand = Math.floor(Math.random() * (deck.length))
-    console.log(rand)
+    // console.log(rand)
 
-    player1.push(rand)
+    player1.push(deck[rand])
     if (cardCounter == 0) {
         $('#playerC3').attr('src', deck[rand].image)
         cardCounter++;
-        console.log(player1)
+        // console.log(player1)
 
     }
     else if (cardCounter == 1) {
@@ -91,15 +92,15 @@ dealOneCardPlayer1 = function () {
     }
 
 }
-console.log(player1)
+// console.log(player1)
 
 let dealer = [];
 let cardCounter2 = 0;
 dealOneCardDealer = function () {
     let rand = Math.floor(Math.random() * (deck.length))
-    console.log(rand)
+    // console.log(rand)
 
-    dealer.push(rand)
+    dealer.push(deck[rand])
     if (cardCounter2 == 0) {
         $('#dealC3').attr('src', deck[rand].image)
         cardCounter2++;
@@ -176,14 +177,58 @@ deal = function () {
         deck.splice(rand4, 1)
 
         count++
-        console.log(count)
+        // console.log(count)
     }
     else if (count === 1) {
         $('#deal').attr('disabled', true)
     }
 }
-console.log(dealer)
 
+
+
+let pScore = 0;
+let dScore = 0;
+const scoreCards = function () {
+    for (i = 0; i < player1.length; i++) {
+        pScore += player1[i].value
+
+    }
+    for (d = 0; d < dealer.length; d++) {
+        dScore += dealer[d].value
+    }
+    console.log(pScore)
+    console.log(dScore)
+
+}
+
+let pScore2 = 0;
+let dScore2 = 0;
+const scoreCards2 = function () {
+    console.log("score cards 2 is happening")
+    console.log("player1", player1)
+    console.log("dealer", dealer)
+    if (player1.length === 3) {
+        for (i = 0; i < player1.length; i++) {
+            pScore2 += player1[i].value
+         
+        }
+        
+
+    }
+    if (dealer.length === 3) {
+            
+        for (d = 0; d < dealer.length; d++) {
+            dScore2 += dealer[d].value
+        }
+        finalPScore = (pScore + pScore2)
+        finalDScore = (dScore + dScore2)
+        console.log(finalPScore)
+        console.log(finalDScore)
+    }
+}
+
+console.log(player1)
+console.log(dealer)
 
 
 
@@ -195,6 +240,7 @@ play = function () {
 $(document).ready(function () {
     $('#hit1').on('click', function () {
         dealOneCardPlayer1()
+        scoreCards2()
     })
 
     $('#hit2').on('click', function () {
@@ -202,6 +248,7 @@ $(document).ready(function () {
     })
     $('#deal').on('click', function () {
         deal()
+        scoreCards()
         // dealOneCardPlayer1()
     })
 
