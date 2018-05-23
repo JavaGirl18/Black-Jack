@@ -1,6 +1,4 @@
 
-
-
 const deck = [];
 const suits = ['Spades', 'Clubs', 'Diamonds', 'Hearts']
 const face = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2']
@@ -41,7 +39,7 @@ const createDeck = function () {
 }
 createDeck()
 
-let dealer = [];
+
 let cardCounter = 0;
 let player1 = [];
 dealOneCardPlayer1 = function () {
@@ -73,6 +71,38 @@ dealOneCardPlayer1 = function () {
 
     // }
 }
+
+let dealer = [];
+let cardCounter2 = 0;
+dealOneCardDealer = function () {
+    let rand = Math.floor(Math.random() * (deck.length))
+    console.log(rand)
+
+    dealer.push(rand)
+    if (cardCounter2 == 0) {
+        $('#dealC3').attr('src', deck[rand].image)
+        cardCounter2++;
+
+    }
+    else if (cardCounter2 == 1) {
+        $('#dealC4').attr('src', deck[rand].image)
+        cardCounter2++
+        console.log()
+    }
+    else if (cardCounter2 == 2) {
+        $('#dealC5').attr('src', deck[rand].image)
+        $('#hit2').attr('disabled', true)
+    }
+    // else if (cardCounter == 3) {
+    //     $('#playerC4').attr('src', deck[rand].image)
+    //     cardCounter++
+    // }
+    // else if (cardCounter == 4) {
+    //     $('#playerC5').attr('src', deck[rand].image)
+
+    // }
+}
+
 
 let count = 0;
 deal = function () {
@@ -131,18 +161,11 @@ deal = function () {
         $('#deal').attr('disabled', true)
     }
 }
-console.log(cardCounter)
+console.log(dealer)
 // console.log(player1)
 
 
 
-let cardCounter2 = 0;
-dealOneCardDealer = function () {
-    let rand = Math.floor(Math.random() * (deck.length))
-    dealer.push(deck[rand])
-
-
-}
 
 play = function () {
 
@@ -158,7 +181,6 @@ $(document).ready(function () {
     })
     $('#deal').on('click', function () {
         deal()
-        play()
         // dealOneCardPlayer1()
     })
 

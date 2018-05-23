@@ -68,7 +68,11 @@ input{
     background-color:red;
 }
 .scoreBox{
-    margin-top:-50px;
+    margin-top:-60px;
+}
+#deal{
+    margin-top:40px;
+    position: absolute;
 }
 /* .dScore{
     border:solid;
