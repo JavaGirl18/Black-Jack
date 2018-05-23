@@ -9,6 +9,7 @@ const createDeck = function () {
         for (let j = 0; j < face.length; j++) {
             let faceValue = 0
             const faceCard = face[j]
+            const num = Number(faceCard)
             switch (faceCard) {
                 case 'A':
                     faceValue = 10;
@@ -22,7 +23,33 @@ const createDeck = function () {
                 case 'J':
                     faceValue = 10;
                     break;
-                default: Number(faceCard)
+                case '10':
+                    faceValue = 10;
+                    break;
+                case '9':
+                    faceValue = 9;
+                    break;
+                    case '8':
+                    faceValue = 8;
+                    break;
+                    case '7':
+                    faceValue = 7;
+                    break;
+                    case '6':
+                    faceValue = 6;
+                    break;
+                    case '5':
+                    faceValue = 5;
+                    break;
+                    case '4':
+                    faceValue = 4;
+                    break;
+                    case '3':
+                    faceValue = 3;
+                    break;
+                    case '2':
+                    faceValue = 2;
+                    break;
             }
 
 
@@ -62,15 +89,9 @@ dealOneCardPlayer1 = function () {
         $('#playerC5').attr('src', deck[rand].image)
         $('#hit1').attr('disabled', true)
     }
-    // else if (cardCounter == 3) {
-    //     $('#playerC4').attr('src', deck[rand].image)
-    //     cardCounter++
-    // }
-    // else if (cardCounter == 4) {
-    //     $('#playerC5').attr('src', deck[rand].image)
 
-    // }
 }
+console.log(player1)
 
 let dealer = [];
 let cardCounter2 = 0;
@@ -139,7 +160,7 @@ deal = function () {
         //use that random index number to choose a card from the deck array 
         //pass it to dealer position 1
         $('#dealC1').attr('src', deck[rand3].image)
-         //store that random card into player1 array for scoring
+        //store that random card into player1 array for scoring
         dealer.push(deck[rand3])
         //remove that random card from the deck so that it isn't called again
         deck.splice(rand3, 1)
@@ -149,7 +170,7 @@ deal = function () {
         //use that random index number to choose a card from the deck array 
         //pass it to dealer position 1
         $('#dealC2').attr('src', deck[rand4].image)
-         //store that random card into player1 array for scoring
+        //store that random card into player1 array for scoring
         dealer.push(deck[rand4])
         //remove that random card from the deck so that it isn't called again
         deck.splice(rand4, 1)
@@ -162,7 +183,7 @@ deal = function () {
     }
 }
 console.log(dealer)
-// console.log(player1)
+
 
 
 
