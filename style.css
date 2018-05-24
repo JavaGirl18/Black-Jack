@@ -17,6 +17,10 @@ body{
    /* display: flex; */
 }
 
+.pC{
+    display:none
+}
+
 .dealer{
     display: flex;
     position: relative;

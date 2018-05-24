@@ -102,17 +102,17 @@ dealOneCardDealer = function () {
 
     dealer.push(deck[rand])
     if (cardCounter2 == 0) {
-        $('#dealC3').attr('src', deck[rand].image)
+        $('#dealC3').show().attr('src', deck[rand].image)
         cardCounter2++;
 
     }
     else if (cardCounter2 == 1) {
-        $('#dealC4').attr('src', deck[rand].image)
+        $('#dealC4').show().attr('src', deck[rand].image)
         cardCounter2++
         console.log()
     }
     else if (cardCounter2 == 2) {
-        $('#dealC5').attr('src', deck[rand].image)
+        $('#dealC5').show().attr('src', deck[rand].image)
         $('#hit2').attr('disabled', true)
     }
 }
@@ -184,7 +184,7 @@ const scorePlayersCards1 = function () {
         $('.myScore').text(pScore)
 
     }
-    console.log('pScore',pScore)
+    console.log('pScore', pScore)
 
 
 }
@@ -198,7 +198,7 @@ const scoreDealersCards1 = function () {
         dScore += dealer[i].value
 
     }
-  
+
 
 }
 
@@ -210,24 +210,26 @@ const scoreCards1 = function () {
         for (i = 0; i < player1.length; i++) {
             pScore2 += player1[i].value
             console.log('pScore2', pScore2)
-            // $('.score').text(pScore2);
+            $('.myScore').text(pScore2);
 
         }
         if (pScore2 === 21) {
             swal('You win with 21 Black Jack')
             $('hit1').attr('disabled', true)
-           
+            
+
         }
         else if (pScore2 > 21) {
 
             $('#hit1').attr('disabled', true)
             swal("So much for luck, looks like you've Bust!")
             
+
         }
-        
+
         else if (pScore2 < 20) {
             console.log(pScore2)
-              $('.score').text(pScore2);
+            $('.score').text(pScore2);
         }
         // console.log(pScore2)
 
@@ -240,23 +242,27 @@ const scoreCards2 = function () {
         for (d = 0; d < dealer.length; d++) {
             dScore2 += dealer[d].value
             console.log('dScore2', dScore2)
+            $('.myScore').text(pScore2);
         }
         if (dScore2 === 21) {
             swal('Dealer Wins')
             $('hit2').attr('disabled', true)
             
+
         }
         else if (dScore2 > 21) {
-           
+
             $('#hit2').attr('disabled', true)
             swal("The Dealer bust")
             
+
         }
-        
+
         else if (dScore2 < 20) {
             // dealOneCardDealer()
             console.log('dScore less than 17')
             console.log(dScore2)
+
         }
 
     }
@@ -264,42 +270,30 @@ const scoreCards2 = function () {
 
 const endGame = function () {
     location.reload();
-    // dealer = []
-    // player1 = []
-    // dScore2 = 0
-    // pScore2 = 0
-    // $('#deal').attr('active', true)
-    // $('#playerC1').attr('src', changeBack2.image)
-    // $('#playerC2').attr('src', changeBack2.image)
-    // $('#playerC3').attr('src', changeBack2.image)
-    // $('#playerC4').attr('src', changeBack2.image)
-    // $('#playerC5').attr('src', changeBack2.image)
-    // $('#dealC1').attr('src', changeBack2.image)
-    // $('#dealC2').attr('src', changeBack2.image)
-    // $('#dealC3').attr('src', changeBack2.image)
-    // $('#dealC4').attr('src', changeBack2.image)
-    // $('#dealC5').attr('src', changeBack2.image)
 }
 
+$('#newGame').hide()
+$('#newGame').on('click',endGame)
+
 var winner = function () {
-    console.log("b",dScore2)
-    console.log("b",pScore2)
-    if (pScore2 > dScore2){
-    alert('Player 1 wins the game')
-    endGame()
-    
+    console.log("b", dScore2)
+    console.log("b", pScore2)
+    if (pScore2 > dScore2) {
+        alert('Player 1 wins the game')
+        endGame()
+
         console.log('console1')
     }
-     if (dScore2 > pScore2 && dScore2 <21){
+    if (dScore2 > pScore2 && dScore2 < 21) {
         alert('Dealer wins the game')
         console.log('console2')
         endGame()
-     } 
-     if (dScore2===pScore2){
+    }
+    if (dScore2 === pScore2) {
         alert('This game is a "Push"')
         console.log('console3')
         endGame()
-     
+
     }
 }
 // const stay = stand()
@@ -319,10 +313,11 @@ $('.table').hide()
 // $('.table').html("images/back.jpeg")
 //   });
 
-$('#start').click(function(){
+$('#start').click(function () {
 
-   $('.table').show() ;
-   $('#start').hide()
+    $('.table').show();
+    $('#start').hide()
+    $('#newGame').show();
 
 })
 
@@ -354,17 +349,17 @@ $(document).ready(function () {
         scoreCards1();
         // dealOneCardPlayer1()
     })
-    $('#stand2').on('click', function (){
+    $('#stand2').on('click', function () {
         dealOneCardDealer();
         dealOneCardDealer();
         scoreCards2()
         scoreCards1()
 
         winner();
-        
+
     })
-    
-        
-    
+
+
+
 })
 
