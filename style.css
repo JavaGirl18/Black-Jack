@@ -29,9 +29,25 @@ body{
     height:50px;
     border-radius:20px;
     color:white;
+    
 }
 #hit1{
-
+    margin-top: 30px;
+    margin-left:30px;
+    height:50px;
+    border-radius: 20px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
+}
+#hit1:hover{
+    background-color:red;
+}
+#stand2{
+    height:50px;
+    border-radius: 20px;
+    box-shadow:0 12px 16px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
+}
+#stand2:hover{
+    background-color:blue;
 }
 .dealer{
     display: flex;
@@ -97,7 +113,15 @@ padding: 20px;
 }
 #deal{
     margin-top:-50px;
+    margin-left:35px;
+    height:50px;
+    border-radius:10px;
     position: absolute;
+    box-shadow:0 12px 16px 0 rgba(0,0,0,0.2), 0 10px 20px 0 rgba(0,0,0,0.19);
+}
+#deal:hover{
+    background-color:black;
+    color:white;
 }
 
 /* .dScore{

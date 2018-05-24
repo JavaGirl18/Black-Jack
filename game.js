@@ -318,6 +318,14 @@ $('#start').click(function () {
     $('.table').show();
     $('#start').hide()
     $('#newGame').show();
+    swal('Thanks for coming, now Deal the cards!').then((value)=>{
+        let instruct = document.createElement("instruct");
+        instruct.innerHTML='<u>How To Play</u><br>The cards 2 through 10 are worth their face value.<br> Kings, queens, and jacks are each worth 10, and aces may be used as either 1 or 11.<br> The object for the player is to draw cards totaling closer to 21, without going over, than the dealers cards.<br> The best total of all is a two-card 21, <br> or a blackjack.<br> The Player may Draw a card by clicking "Hit" <br>or choose to keep their current score by clicking "Stand"<br>If a player chooses to stand, their turn will end and the dealer will take its turn<br>'
+        swal({
+          content: instruct,
+        });
+        
+    })
 
 })
 
