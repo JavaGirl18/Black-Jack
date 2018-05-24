@@ -181,9 +181,11 @@ const scorePlayersCards1 = function () {
     let pScore = 0;
     for (i = 0; i < player1.length; i++) {
         pScore += player1[i].value
+        $('.myScore').text(pScore)
 
     }
     console.log('pScore',pScore)
+
 
 }
 
@@ -196,7 +198,7 @@ const scoreDealersCards1 = function () {
         dScore += dealer[i].value
 
     }
-    console.log('dScore',dScore)
+  
 
 }
 
@@ -208,22 +210,24 @@ const scoreCards1 = function () {
         for (i = 0; i < player1.length; i++) {
             pScore2 += player1[i].value
             console.log('pScore2', pScore2)
+            // $('.score').text(pScore2);
 
         }
         if (pScore2 === 21) {
-            alert('You win with 21 Black Jack')
+            swal('You win with 21 Black Jack')
             $('hit1').attr('disabled', true)
            
         }
         else if (pScore2 > 21) {
 
             $('#hit1').attr('disabled', true)
-            alert("So much for luck, looks like you've Bust!")
+            swal("So much for luck, looks like you've Bust!")
             
         }
         
         else if (pScore2 < 20) {
             console.log(pScore2)
+              $('.score').text(pScore2);
         }
         // console.log(pScore2)
 
@@ -238,14 +242,14 @@ const scoreCards2 = function () {
             console.log('dScore2', dScore2)
         }
         if (dScore2 === 21) {
-            alert('Dealer Wins')
+            swal('Dealer Wins')
             $('hit2').attr('disabled', true)
             
         }
         else if (dScore2 > 21) {
-            modal(swal.dWin)
+           
             $('#hit2').attr('disabled', true)
-            // alert("The Dealer bust")
+            swal("The Dealer bust")
             
         }
         
@@ -286,7 +290,7 @@ var winner = function () {
     
         console.log('console1')
     }
-     if (dScore2 > pScore2){
+     if (dScore2 > pScore2 && dScore2 <21){
         alert('Dealer wins the game')
         console.log('console2')
         // endGame()
@@ -317,7 +321,7 @@ const modal= function(){
 // console.log(player1)
 // console.log(dealer)
 
-
+// $('.table').hide()
 
 
 play = function () {
@@ -329,6 +333,7 @@ $(document).ready(function () {
         dealOneCardPlayer1()
         scoreCards1()
 
+
     })
 
     // $('#hit2').on('click', function () {
@@ -337,11 +342,11 @@ $(document).ready(function () {
 
     // })
     $('#deal').on('click', function () {
-        deal()
-        scorePlayersCards1()
-        scoreDealersCards1()
-        scoreCards2()
-        scoreCards1()
+        deal();
+        scorePlayersCards1();
+        scoreDealersCards1();
+        scoreCards2();
+        scoreCards1();
         // dealOneCardPlayer1()
     })
     $('#stand2').on('click', function (){
@@ -349,9 +354,11 @@ $(document).ready(function () {
         dealOneCardDealer();
         scoreCards2()
         scoreCards1()
-        console.log("a",dScore2)
-    console.log("a",pScore2)
+
         winner();
         
     })
+
+    
 })
+
