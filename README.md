@@ -13,11 +13,22 @@
 *Sublime Text - to create README file
 *Host & Deploy - BitBalloon
 
+
 #Game Features
 *AI Dealer
 *Splash Page
 *Game Instructions
 *Scoring board
 *Hit, Stand and Deal buttons
+
+#Instructions
+![Wireframe](GameInstructions.png)
+
+#Wire Frame
+![Wireframe](WireFrame1.jpg)
+![Wireframe](WireFrame2.jpg)
+
+
+
 
 
