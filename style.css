@@ -24,6 +24,9 @@ body{
     display:none;
 }
 
+#newGame{
+    background-color:green;
+}
 .dealer{
     display: flex;
     position: relative;
