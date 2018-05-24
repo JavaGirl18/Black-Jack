@@ -38,7 +38,7 @@ body{
     height:110px;
     width:500px;
     margin:auto;
-    margin-top:-30px;
+    margin-top:-40px;
     
 }
 img, .card{
@@ -60,7 +60,14 @@ margin-top:-160px;
 padding: 20px;
 
 }
-
+#start{
+    margin-top:20%;
+    height:40px;
+    border-radius: 10px;
+    color:white;
+    background-color: black;
+    outline-style: none;
+}
 #pScore{
     margin-top:80px;
 }
@@ -77,9 +84,7 @@ padding: 20px;
     margin-top:-50px;
     position: absolute;
 }
-#playerC2{
-    display: none;
-}
+
 /* .dScore{
     border:solid;
 }
