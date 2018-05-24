@@ -12,3 +12,12 @@
 *User Stories - Trello
 *Sublime Text - to create README file
 *Host & Deploy - BitBalloon
+
+#Game Features
+*AI Dealer
+*Splash Page
+*Game Instructions
+*Scoring board
+*Hit, Stand and Deal buttons
+
+
