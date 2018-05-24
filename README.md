@@ -1,9 +1,9 @@
 
 
 # Black Jack
-** Click to Launch Project: ** <https://www.bitballoon.com/sites/heuristic-poincare-bb77bd>   
+Click to Launch Project:  <https://www.bitballoon.com/sites/heuristic-poincare-bb77bd>   
 
-** Click to view User Story on Trello: ** <https://trello.com/b/GEseWYCb/black-jack-project-1>
+Click to view User Story on Trello:  <https://trello.com/b/GEseWYCb/black-jack-project-1>
 
 
 # Project Objective
