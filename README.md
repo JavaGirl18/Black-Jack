@@ -1,5 +1,5 @@
 # blackJack
-** Click to launch Project**
+** Click to launch Project:**
 ** Click to view User Story**
 
 # Project Objective
