@@ -115,24 +115,13 @@ dealOneCardDealer = function () {
         $('#dealC5').attr('src', deck[rand].image)
         $('#hit2').attr('disabled', true)
     }
-    // else if (cardCounter == 3) {
-    //     $('#playerC4').attr('src', deck[rand].image)
-    //     cardCounter++
-    // }
-    // else if (cardCounter == 4) {
-    //     $('#playerC5').attr('src', deck[rand].image)
-
-    // }
 }
 
-
+const changeBack = {
+    image: "images/back.jpeg"
+}
 let count = 0;
 deal = function () {
-    //randomly generate an index for the card from the deck   
-
-    //to player1 and the dealer
-    //and remove that card from the deck
-
     if (count === 0) {
         //randomly generate a index number based on the length of the deck array
         let rand = Math.floor(Math.random() * (deck.length))
@@ -170,7 +159,7 @@ deal = function () {
         let rand4 = Math.floor(Math.random() * (deck.length))
         //use that random index number to choose a card from the deck array 
         //pass it to dealer position 1
-        $('#dealC2').attr('src', deck[rand4].image)
+        $('#dealC2').attr('src', changeBack.image)
         //store that random card into player1 array for scoring
         dealer.push(deck[rand4])
         //remove that random card from the deck so that it isn't called again
@@ -186,49 +175,131 @@ deal = function () {
 
 
 
-let pScore = 0;
-let dScore = 0;
-const scoreCards = function () {
+
+
+const scorePlayersCards1 = function () {
+    let pScore = 0;
     for (i = 0; i < player1.length; i++) {
         pScore += player1[i].value
 
     }
-    for (d = 0; d < dealer.length; d++) {
-        dScore += dealer[d].value
-    }
-    console.log(pScore)
-    console.log(dScore)
+    console.log('pScore',pScore)
 
 }
+
+
+
+
+const scoreDealersCards1 = function () {
+    let dScore = 0;
+    for (i = 0; i < dealer.length; i++) {
+        dScore += dealer[i].value
+
+    }
+    console.log('dScore',dScore)
+
+}
+
 
 let pScore2 = 0;
-let dScore2 = 0;
-const scoreCards2 = function () {
-    console.log("score cards 2 is happening")
-    console.log("player1", player1)
-    console.log("dealer", dealer)
-    if (player1.length === 3) {
+const scoreCards1 = function () {
+    pScore2 = 0;
+    if (player1.length >= 3) {
         for (i = 0; i < player1.length; i++) {
             pScore2 += player1[i].value
-         
+            console.log('pScore2', pScore2)
+
+        }
+        if (pScore2 === 21) {
+            alert('You win with 21 Black Jack')
+            $('hit1').attr('disabled', true)
+           
+        }
+        else if (pScore2 > 21) {
+
+            $('#hit1').attr('disabled', true)
+            alert("So much for luck, looks like you've Bust!")
+            
         }
         
+        else if (pScore2 < 20) {
+            console.log(pScore2)
+        }
+        // console.log(pScore2)
 
     }
-    if (dealer.length === 3) {
-            
+}
+let dScore2 = 0;
+const scoreCards2 = function () {
+    dScore2 = 0;
+    if (dealer.length >= 3) {
         for (d = 0; d < dealer.length; d++) {
             dScore2 += dealer[d].value
+            console.log('dScore2', dScore2)
         }
-        finalPScore = (pScore + pScore2)
-        finalDScore = (dScore + dScore2)
-        console.log(finalPScore)
-        console.log(finalDScore)
+        if (dScore2 === 21) {
+            alert('Dealer Wins')
+            $('hit2').attr('disabled', true)
+            
+        }
+        else if (dScore2 > 21) {
+
+            $('#hit2').attr('disabled', true)
+            alert("The Dealer bust")
+            
+        }
+        
+        else if (dScore2 < 20) {
+            // dealOneCardDealer()
+            console.log('dScore less than 17')
+            console.log(dScore2)
+        }
+
     }
 }
 
-console.log(player1)
-console.log(dealer)
+var winner = function () {
+    if (pScore2 > dScore2){
+    alert('Player 1 wins the game')
+        console.log('console1')
+    }
+    else if (dScore2 > pScore2){
+        alert('Dealer wins the game')
+        console.log('console2')
+     } 
+     else if (dScore2===pScore2){
+        alert('This game is a "Push"')
+        console.log('console3')
+     
+    }
+}
+// const stay = stand()
+
+
+const changeBack2 = {
+    image: "images/back.jpeg"
+}
+const endGame = function () {
+    dealer = []
+    player1 = []
+    dScore2 = 0
+    pScore2 = 0
+    $('#deal').attr('active', true)
+    $('#playerC1').attr('src', changeBack2.image)
+    $('#playerC2').attr('src', changeBack2.image)
+    $('#playerC3').attr('src', changeBack2.image)
+    $('#playerC4').attr('src', changeBack2.image)
+    $('#playerC5').attr('src', changeBack2.image)
+    $('#dealC1').attr('src', changeBack2.image)
+    $('#dealC2').attr('src', changeBack2.image)
+    $('#dealC3').attr('src', changeBack2.image)
+    $('#dealC4').attr('src', changeBack2.image)
+    $('#dealC5').attr('src', changeBack2.image)
+}
+
+
+// console.log(player1)
+// console.log(dealer)
 
 
 
@@ -240,16 +311,26 @@ play = function () {
 $(document).ready(function () {
     $('#hit1').on('click', function () {
         dealOneCardPlayer1()
-        scoreCards2()
+        scoreCards1()
+
     })
 
     $('#hit2').on('click', function () {
         dealOneCardDealer()
+        scoreCards2()
+
     })
     $('#deal').on('click', function () {
         deal()
-        scoreCards()
+        scorePlayersCards1()
+        scoreDealersCards1()
+        scoreCards2()
+        scoreCards1()
         // dealOneCardPlayer1()
     })
-
+    $('#stand2').on('click', function (){
+        dealOneCardDealer();
+        winner();
+        
+    })
 })
