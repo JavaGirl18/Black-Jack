@@ -1,8 +1,5 @@
 
-# Black Jack
-** Click to launch Project: **
-** Click to view User Story **
-=======
+
 # Black Jack
 ** Click to Launch Project: ** <https://www.bitballoon.com/sites/heuristic-poincare-bb77bd>   
 
