@@ -18,7 +18,7 @@ Click to view User Story on Trello:  <https://trello.com/b/GEseWYCb/black-jack-p
 * Host & Deploy - BitBalloon
 
 
-#Game Features
+# Game Features
 * AI Dealer
 * Splash Page
 * Game Instructions
