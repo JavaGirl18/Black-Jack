@@ -18,7 +18,10 @@ body{
 }
 
 .pC{
-    display:none
+    display:none;
+}
+.dC{
+    display:none;
 }
 
 .dealer{

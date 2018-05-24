@@ -76,18 +76,18 @@ dealOneCardPlayer1 = function () {
 
     player1.push(deck[rand])
     if (cardCounter == 0) {
-        $('#playerC3').attr('src', deck[rand].image)
+        $('#playerC3').show().attr('src', deck[rand].image)
         cardCounter++;
         // console.log(player1)
 
     }
     else if (cardCounter == 1) {
-        $('#playerC4').attr('src', deck[rand].image)
+        $('#playerC4').show().attr('src', deck[rand].image)
         cardCounter++
 
     }
     else if (cardCounter == 2) {
-        $('#playerC5').attr('src', deck[rand].image)
+        $('#playerC5').show().attr('src', deck[rand].image)
         $('#hit1').attr('disabled', true)
     }
 
@@ -127,7 +127,7 @@ deal = function () {
         let rand = Math.floor(Math.random() * (deck.length))
         //use that random index number to choose a card from the deck array 
         //pass it to player1 position 1
-        $('#playerC1').attr('src', deck[rand].image)
+        $('#playerC1').show().attr('src', deck[rand].image)
 
         //store that random card into player1 array for scoring
         player1.push(deck[rand])
@@ -139,7 +139,7 @@ deal = function () {
         //use that random index number to choose a card from the deck array 
         //pass it to player1 position 2
 
-        $('#playerC2').attr('src', deck[rand2].image)
+        $('#playerC2').show().attr('src', deck[rand2].image)
         //store that random card into player1 array for scoring
         player1.push(deck[rand2])
         //remove that random card from the deck so that it isn't called again
@@ -149,7 +149,7 @@ deal = function () {
         let rand3 = Math.floor(Math.random() * (deck.length))
         //use that random index number to choose a card from the deck array 
         //pass it to dealer position 1
-        $('#dealC1').attr('src', deck[rand3].image)
+        $('#dealC1').show().attr('src', deck[rand3].image)
         //store that random card into player1 array for scoring
         dealer.push(deck[rand3])
         //remove that random card from the deck so that it isn't called again
@@ -159,7 +159,7 @@ deal = function () {
         let rand4 = Math.floor(Math.random() * (deck.length))
         //use that random index number to choose a card from the deck array 
         //pass it to dealer position 1
-        $('#dealC2').attr('src', changeBack.image)
+        $('#dealC2').show().attr('src', changeBack.image)
         //store that random card into player1 array for scoring
         dealer.push(deck[rand4])
         //remove that random card from the deck so that it isn't called again
