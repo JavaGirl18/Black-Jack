@@ -243,9 +243,9 @@ const scoreCards2 = function () {
             
         }
         else if (dScore2 > 21) {
-
+            modal(swal.dWin)
             $('#hit2').attr('disabled', true)
-            alert("The Dealer bust")
+            // alert("The Dealer bust")
             
         }
         
@@ -258,21 +258,43 @@ const scoreCards2 = function () {
     }
 }
 
+const endGame = function () {
+    location.reload();
+    // dealer = []
+    // player1 = []
+    // dScore2 = 0
+    // pScore2 = 0
+    // $('#deal').attr('active', true)
+    // $('#playerC1').attr('src', changeBack2.image)
+    // $('#playerC2').attr('src', changeBack2.image)
+    // $('#playerC3').attr('src', changeBack2.image)
+    // $('#playerC4').attr('src', changeBack2.image)
+    // $('#playerC5').attr('src', changeBack2.image)
+    // $('#dealC1').attr('src', changeBack2.image)
+    // $('#dealC2').attr('src', changeBack2.image)
+    // $('#dealC3').attr('src', changeBack2.image)
+    // $('#dealC4').attr('src', changeBack2.image)
+    // $('#dealC5').attr('src', changeBack2.image)
+}
+
 var winner = function () {
     console.log("b",dScore2)
     console.log("b",pScore2)
     if (pScore2 > dScore2){
     alert('Player 1 wins the game')
+    endGame()
     
         console.log('console1')
     }
      if (dScore2 > pScore2){
         alert('Dealer wins the game')
         console.log('console2')
+        endGame()
      } 
      if (dScore2===pScore2){
         alert('This game is a "Push"')
         console.log('console3')
+        endGame()
      
     }
 }
@@ -282,22 +304,13 @@ var winner = function () {
 const changeBack2 = {
     image: "images/back.jpeg"
 }
-const endGame = function () {
-    dealer = []
-    player1 = []
-    dScore2 = 0
-    pScore2 = 0
-    $('#deal').attr('active', true)
-    $('#playerC1').attr('src', changeBack2.image)
-    $('#playerC2').attr('src', changeBack2.image)
-    $('#playerC3').attr('src', changeBack2.image)
-    $('#playerC4').attr('src', changeBack2.image)
-    $('#playerC5').attr('src', changeBack2.image)
-    $('#dealC1').attr('src', changeBack2.image)
-    $('#dealC2').attr('src', changeBack2.image)
-    $('#dealC3').attr('src', changeBack2.image)
-    $('#dealC4').attr('src', changeBack2.image)
-    $('#dealC5').attr('src', changeBack2.image)
+
+const modal= function(){
+    swal({
+        dWin: "dwin",
+        pWin: "pwin",
+        push: "both",
+      });
 }
 
 
