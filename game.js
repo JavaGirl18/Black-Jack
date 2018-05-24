@@ -309,19 +309,24 @@ const changeBack2 = {
     image: "images/back.jpeg"
 }
 
-const modal= function(){
-    swal({
-        dWin: "dwin",
-        pWin: "pwin",
-        push: "both",
-      });
-}
 
 
 // console.log(player1)
 // console.log(dealer)
 
-// $('.table').hide()
+$('.table').hide()
+// $( window ).load(function() {
+// $('.table').html("images/back.jpeg")
+//   });
+
+$('#start').click(function(){
+
+   $('.table').show() ;
+   $('#start').hide()
+
+})
+
+$('body').css('background-image', "url('images/black.jpg')")
 
 
 play = function () {
@@ -358,7 +363,8 @@ $(document).ready(function () {
         winner();
         
     })
-
+    
+        
     
 })
 
