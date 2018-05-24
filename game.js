@@ -216,14 +216,14 @@ const scoreCards1 = function () {
         if (pScore2 === 21) {
             swal('You win with 21 Black Jack')
             $('hit1').attr('disabled', true)
-            
+
 
         }
         else if (pScore2 > 21) {
 
             $('#hit1').attr('disabled', true)
             swal("So much for luck, looks like you've Bust!")
-            
+
 
         }
 
@@ -247,14 +247,14 @@ const scoreCards2 = function () {
         if (dScore2 === 21) {
             swal('Dealer Wins')
             $('hit2').attr('disabled', true)
-            
+
 
         }
         else if (dScore2 > 21) {
 
             $('#hit2').attr('disabled', true)
             swal("The Dealer bust, You win!")
-            
+
 
         }
 
@@ -273,26 +273,26 @@ const endGame = function () {
 }
 
 $('#newGame').hide()
-$('#newGame').on('click',endGame)
+$('#newGame').on('click', endGame)
 
 var winner = function () {
     console.log("b", dScore2)
     console.log("b", pScore2)
     if (pScore2 > dScore2) {
         swal('Player 1 wins the game')
-        
+
 
         console.log('console1')
     }
     if (dScore2 > pScore2 && dScore2 < 21) {
         swal('You lose, Dealer wins the game!')
         console.log('console2')
-        
+
     }
     if (dScore2 === pScore2) {
         swal('This game is a "Push"')
         console.log('console3')
-       
+
 
     }
 }
@@ -318,13 +318,13 @@ $('#start').click(function () {
     $('.table').show();
     $('#start').hide()
     $('#newGame').show();
-    swal('Thanks for coming, now Deal the cards!').then((value)=>{
+    swal('Thanks for coming, now Deal the cards!').then((value) => {
         let instruct = document.createElement("instruct");
-        instruct.innerHTML='<u>How To Play</u><br>The cards 2 through 10 are worth their face value.<br> Kings, queens, and jacks are each worth 10, and aces may be used as either 1 or 11.<br> The object for the player is to draw cards totaling closer to 21, without going over, than the dealers cards.<br> The best total of all is a two-card 21, <br> or a blackjack.<br> The Player may Draw a card by clicking "Hit" <br>or choose to keep their current score by clicking "Stand"<br>If a player chooses to stand, their turn will end and the dealer will take its turn<br>'
+        instruct.innerHTML = '<u>How To Play</u><br>The cards 2 through 10 are worth their face value.<br> Kings, queens, and jacks are each worth 10, and aces may be used as either 1 or 11.<br> The object for the player is to draw cards totaling closer to 21, without going over, than the dealers cards.<br> The best total of all is a two-card 21, <br> or a blackjack.<br> The Player may Draw a card by clicking "Hit" <br>or choose to keep their current score by clicking "Stand"<br>If a player chooses to stand, their turn will end and the dealer will take its turn<br>'
         swal({
-          content: instruct,
+            content: instruct,
         });
-        
+
     })
 
 })
@@ -332,34 +332,29 @@ $('#start').click(function () {
 $('body').css('background-image', "url('images/black.jpg')")
 
 
-play = function () {
+// let mPlay = function () {
 
-}
+// }
 
 $(document).ready(function () {
     $('#hit1').on('click', function () {
         dealOneCardPlayer1()
         scoreCards1()
-
-
     })
 
-    // $('#hit2').on('click', function () {
-    //     dealOneCardDealer()
-    //     scoreCards2()
-
-    // })
+   
     $('#deal').on('click', function () {
         deal();
+
         scorePlayersCards1();
         scoreDealersCards1();
         scoreCards2();
         scoreCards1();
+
         // dealOneCardPlayer1()
     })
     $('#stand2').on('click', function () {
         dealOneCardDealer();
-       
         scoreCards2()
         scoreCards1()
 
