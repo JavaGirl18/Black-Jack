@@ -259,15 +259,18 @@ const scoreCards2 = function () {
 }
 
 var winner = function () {
+    console.log("b",dScore2)
+    console.log("b",pScore2)
     if (pScore2 > dScore2){
     alert('Player 1 wins the game')
+    
         console.log('console1')
     }
-    else if (dScore2 > pScore2){
+     if (dScore2 > pScore2){
         alert('Dealer wins the game')
         console.log('console2')
      } 
-     else if (dScore2===pScore2){
+     if (dScore2===pScore2){
         alert('This game is a "Push"')
         console.log('console3')
      
@@ -330,6 +333,10 @@ $(document).ready(function () {
     })
     $('#stand2').on('click', function (){
         dealOneCardDealer();
+        scoreCards2()
+        scoreCards1()
+        console.log("a",dScore2)
+    console.log("a",pScore2)
         winner();
         
     })
