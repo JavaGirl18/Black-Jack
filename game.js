@@ -253,14 +253,14 @@ const scoreCards2 = function () {
         else if (dScore2 > 21) {
 
             $('#hit2').attr('disabled', true)
-            swal("The Dealer bust")
+            swal("The Dealer bust, You win!")
             
 
         }
 
         else if (dScore2 < 20) {
             // dealOneCardDealer()
-            console.log('dScore less than 17')
+            // console.log('dScore less than 17')
             console.log(dScore2)
 
         }
@@ -279,20 +279,20 @@ var winner = function () {
     console.log("b", dScore2)
     console.log("b", pScore2)
     if (pScore2 > dScore2) {
-        alert('Player 1 wins the game')
-        endGame()
+        swal('Player 1 wins the game')
+        
 
         console.log('console1')
     }
     if (dScore2 > pScore2 && dScore2 < 21) {
-        alert('Dealer wins the game')
+        swal('You lose, Dealer wins the game!')
         console.log('console2')
-        endGame()
+        
     }
     if (dScore2 === pScore2) {
-        alert('This game is a "Push"')
+        swal('This game is a "Push"')
         console.log('console3')
-        endGame()
+       
 
     }
 }
@@ -351,7 +351,7 @@ $(document).ready(function () {
     })
     $('#stand2').on('click', function () {
         dealOneCardDealer();
-        dealOneCardDealer();
+       
         scoreCards2()
         scoreCards1()
 

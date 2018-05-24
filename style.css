@@ -26,6 +26,12 @@ body{
 
 #newGame{
     background-color:green;
+    height:50px;
+    border-radius:20px;
+    color:white;
+}
+#hit1{
+
 }
 .dealer{
     display: flex;
@@ -61,10 +67,7 @@ img, .card{
     /* margin-top:20px; */
     
 }
-.chips{
-    float: right;
-    transform:translate('90px')
-}
+
 #ptitle{
 margin-top:-160px;
 padding: 20px;
@@ -86,6 +89,8 @@ padding: 20px;
     height:30px;
     width: 55px;
    margin-left:40px;
+   border:solid;
+   border-radius: 10px;
 }
 .scoreBox{
     margin-top:-50px;
