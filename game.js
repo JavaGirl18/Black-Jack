@@ -286,19 +286,19 @@ var winner = function () {
     console.log("b",pScore2)
     if (pScore2 > dScore2){
     alert('Player 1 wins the game')
-    // endGame()
+    endGame()
     
         console.log('console1')
     }
      if (dScore2 > pScore2 && dScore2 <21){
         alert('Dealer wins the game')
         console.log('console2')
-        // endGame()
+        endGame()
      } 
      if (dScore2===pScore2){
         alert('This game is a "Push"')
         console.log('console3')
-        // endGame()
+        endGame()
      
     }
 }
